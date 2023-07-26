@@ -5,8 +5,8 @@
   <button @click=" createTodo() ">submit</button>
   <h3>list of allTodos</h3>
 
-<p v-for="todo in allTodos" :key="todo._id"> 
-{{ todo.todo }}
+<p v-for="todo in allTodos" :key="todo._id" > 
+{{ todo.todo }} <button @click="deleteTodo(todo._id)">delete</button>
 </p>
 </div>
 </template>
@@ -50,12 +50,16 @@ axios
 })
   .then((res)=>{
     console.log(res.data)
-    this.refreshData
+    this.refreshData()
   })
 },
 
-deleteTodo(){
-
+deleteTodo(id){
+axios
+  .delete(`http://localhost:8000/todo/${id}`)
+  .then(()=>{
+    this.refreshData()
+  })
 }
 
 
