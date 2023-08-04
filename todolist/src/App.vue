@@ -116,5 +116,9 @@ mounted:function()
 #btns{
   height: 30px;
   width: 30px;
+  
+}
+#btns:hover{
+  border:5px #11d335;
 }
 </style>
