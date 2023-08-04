@@ -3,22 +3,37 @@
 
   <h1>To Do's</h1>
   <input type="text" v-model="todoList.todo">
-  <button @click=" createTodo() ">submit</button>
+  <img src="https://www.freepnglogos.com/uploads/plus-icon/add-plus-icon-28.png" alt="plusLogo" id="btns" @click=" createTodo() ">
+  
 
-  <h3>list of allTodos</h3>
+  <!-- List of Todos -->
 
 <div v-for="todo in allTodos" :key="todo._id">
-  <p v-if="todo.check" @click="todo.check = !todo.check"> 
-  {{ todo.todo }} 
+
+  <table class="table">
+    <tbody>
+      <tr>
+        <th scope="row" v-if="todo.check" @click="todo.check = !todo.check">
+          {{ todo.todo }}
+        </th>
+        <th scope="row" class="change" v-else @click="todo.check = !todo.check">
+          {{ todo.todo }}
+        </th>
+        <td><img src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-close-512.png" alt="deletebtn" id="btns" @click="deleteTodo(todo._id)"></td>
+      </tr>
+    </tbody>
+
+  </table>
+  <!-- <p v-if="todo.check" @click="todo.check = !todo.check">
+  {{ todo.todo }}
   </p>
   
 
   <p class="change" v-else @click="todo.check = !todo.check">
     {{ todo.todo }} 
-  </p><button @click="deleteTodo(todo._id)">delete</button>
+  </p><button @click="deleteTodo(todo._id)">delete</button> -->
   
 </div>
-
 </div>
 </template>
 
@@ -76,11 +91,6 @@ axios
   })
 },
 
-// switch list item from true to false vice versa
-handleToggle(){
-
-}
-
 },
 
 mounted:function()
@@ -102,5 +112,9 @@ mounted:function()
 }
 .change{
   text-decoration: line-through;
+}
+#btns{
+  height: 30px;
+  width: 30px;
 }
 </style>
