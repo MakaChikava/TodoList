@@ -1,12 +1,14 @@
 <template>
-<div>
-
-  <h1>To Do's</h1>
-  <input type="text" v-model="todoList.todo">
-  <img src="https://www.freepnglogos.com/uploads/plus-icon/add-plus-icon-28.png" alt="plusLogo" id="btns" @click=" createTodo() ">
-  
+<div class="body">
 
   <!-- List of Todos -->
+
+  <div class="card" style="width: 25rem;">
+  <div class="card-body">
+    <h5 class="card-title">Todo App</h5>
+    <input type="text" v-model="todoList.todo">
+    <img src="https://www.freepnglogos.com/uploads/plus-icon/add-plus-icon-28.png" alt="plusLogo" id="btns" @click=" createTodo() ">
+    <h6 class="card-subtitle mb-2 text-body-secondary"></h6>
 
 <div v-for="todo in allTodos" :key="todo._id">
 
@@ -24,16 +26,14 @@
     </tbody>
 
   </table>
-  <!-- <p v-if="todo.check" @click="todo.check = !todo.check">
-  {{ todo.todo }}
-  </p>
   
-
-  <p class="change" v-else @click="todo.check = !todo.check">
-    {{ todo.todo }} 
-  </p><button @click="deleteTodo(todo._id)">delete</button> -->
   
 </div>
+  </div>
+  </div>
+
+
+
 </div>
 </template>
 
@@ -120,5 +120,15 @@ mounted:function()
 }
 #btns:hover{
   border:5px #11d335;
+}
+.body{
+  display: flex;
+  
+  justify-content: center;
+  align-items: center;
+}
+.card{
+  display: flex;
+  margin-top: 8%;
 }
 </style>
