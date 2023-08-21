@@ -3,12 +3,15 @@
 
   <!-- List of Todos -->
 
-  <div class="card" style="width: 25rem;">
+  <div class="card" style="width: 35rem;">
   <div class="card-body">
-    <h5 class="card-title">Todo App</h5>
+    <h5 class="card-title">To do</h5>
+    <br>
     <input type="text" v-model="todoList.todo">
-    <img src="https://www.freepnglogos.com/uploads/plus-icon/add-plus-icon-28.png" alt="plusLogo" id="btns" @click=" createTodo() ">
-    <h6 class="card-subtitle mb-2 text-body-secondary"></h6>
+    <img src="https://www.freepnglogos.com/uploads/plus-icon/add-plus-icon-28.png" alt="plusLogo" id="btn" @click=" createTodo() ">
+  
+    <br>
+    <br>
 
 <div v-for="todo in allTodos" :key="todo._id">
 
@@ -110,25 +113,41 @@ mounted:function()
   color: #2c3e50;
   margin-top: 60px;
 }
+
+body{
+  background-image: linear-gradient(rgb(168, 216, 239), rgb(112, 142, 249));
+  background-position: center;
+  background-repeat: no-repeat;
+  height:100%;
+  
+}
 .change{
   text-decoration: line-through;
 }
 #btns{
+  height: 15px;
+  width: 15px;
+  
+}
+#btn{
   height: 30px;
   width: 30px;
-  
 }
 #btns:hover{
   border:5px #11d335;
 }
 .body{
   display: flex;
-  
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
+  height: 100vh;
 }
 .card{
   display: flex;
-  margin-top: 8%;
+  height:fit-content;
+}
+.card-title{
+  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size:xx-large
 }
 </style>
